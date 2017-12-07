@@ -3,13 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { PymesService } from '../../app/services/pymes.service'; 
 
-/**
- * Generated class for the ListaPymesPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-lista-pymes',
@@ -17,12 +10,16 @@ import { PymesService } from '../../app/services/pymes.service';
 })
 export class ListaPymesPage {
 
-	public id; 
+	public id;
+	public pymes = []; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public pymesService: PymesService) {
 
   	this.id = navParams.get("id");
-  	pymesService.getPymesByCategoria(this.id); 
+  	pymesService.getPymesByCategoria(this.id)
+  	.subscribe(pymes => {
+  		this.pymes = pymes;
+  	}); 
 
   }
 

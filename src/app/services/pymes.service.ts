@@ -20,7 +20,8 @@ export class PymesService{
 
 	public getPymesByCategoria(id_categoria){
 
-		let data = this.db.list('pymes');
-		console.log(data);
+		return this.db.list('pymes');
+		//console.log(id_categoria);
+		//console.log(data);
 	}
 }
