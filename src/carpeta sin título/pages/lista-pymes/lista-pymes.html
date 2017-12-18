@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{ nombre }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+<ion-list>
+  <ion-item *ngFor="let pyme of pymes | async" (click)="goToFicha(pyme)">
+    <ion-thumbnail item-start>
+      <img src="{{ pyme.image }}">
+    </ion-thumbnail>
+    <h1>{{ pyme.nombre }}</h1>
+    <p>Hayao Miyazaki • 1988</p>
+    <button ion-button clear item-end>View</button>
+  </ion-item>
+</ion-list>
+</ion-content>
+
+
